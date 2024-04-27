@@ -1,37 +1,48 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# TalkSpark: AI-Powered Conversation Starter
 
-## Getting Started
+TalkSpark is a cool app that uses AI to give you great conversation starters. Just type in someone's name, and TalkSpark will find their social media profiles online. It looks at their info and interests to make custom icebreakers for you. This helps you start enjoyable chats with new people.
 
-First, run the development server:
+**Link to project:** [https://talk-spark-frontend.vercel.app/](https://talk-spark-frontend.vercel.app/)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+![TalkSpark Screenshot](https://i.imgur.com/XYZxXYZ.png)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## How It's Made
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+**Tech used:** LangChain, Next.js, FASTAPI, Python, SearpAPI, ProxyCurl
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+TalkSpark uses LangChain, which is framework used to build apps with LLMs. It combines LangChain agents, custom tools, and output parsers to connect to peoples LinkedIn. This lets it pull public profile data.
 
-## Learn More
+SearpAPI, ProxyCurl helps TalkSpark grab info from websites by web scraping. The LangChain agents then process this data to make personalized profiles, fun facts, and custom icebreaker questions.
 
-To learn more about Next.js, take a look at the following resources:
+TalkSpark's code is built in sections, so you can add more data sources like twitter and facebook easily. Also you switch language models. The front-end uses Next.js to make it simple to use.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Optimizations
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+To ensure optimal performance and scalability, TalkSpark employs several optimization techniques:
 
-## Deploy on Vercel
+1. **Caching**: Frequently accessed social media profiles and web pages are cached to reduce redundant requests and improve response times.
+2. **Asynchronous Processing**: Web scraping and data processing tasks are executed asynchronously, enabling TalkSpark to handle multiple requests concurrently without sacrificing responsiveness.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Lessons Learned
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-# talk_spark_frontend
+Building TalkSpark taught me a ton about using LLMs, Langchain and web scraping in really cool ways, like:
+
+- Combining multiple data sources and LLMs into one smooth app.
+- Making custom agents and tools for LangChain to do exactly what I needed.
+- Optimizing web scraping to make it fast and reliable.
+- Adding async processing and caching to make things speedy.
+
+This project made me really excited about using Langchain to solve practical problems and help people connect better.
+
+## Examples
+
+Here are a few examples showcasing TalkSpark's capabilities:
+
+**Elon Musk:**
+[https://talk-spark.com/profile/elonmusk](https://talk-spark.com/profile/elonmusk)
+
+**Oprah Winfrey:**
+[https://talk-spark.com/profile/oprahwinfrey](https://talk-spark.com/profile/oprahwinfrey)
+
+**Satya Nadella:**
+[https://talk-spark.com/profile/satyanadella](https://talk-spark.com/profile/satyanadella)
