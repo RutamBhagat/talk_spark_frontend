@@ -4,7 +4,8 @@ TalkSpark is a cool app that uses AI to give you great conversation starters. Ju
 
 **Link to project:** [https://talk-spark-frontend.vercel.app/](https://talk-spark-frontend.vercel.app/)
 
-![TalkSpark Screenshot](https://i.imgur.com/XYZxXYZ.png)
+![Screenshot 2024-04-27 093353](https://github.com/RutamBhagat/talk_spark_frontend/assets/72187009/5dc30ada-33dd-4803-9cd9-c64c8a0722cf)
+
 
 ## How It's Made
 
@@ -38,11 +39,11 @@ This project made me really excited about using Langchain to solve practical pro
 
 Here are a few examples showcasing TalkSpark's capabilities:
 
-**Elon Musk:**
-[https://talk-spark.com/profile/elonmusk](https://talk-spark.com/profile/elonmusk)
+**Andrew NG:**
+![Screenshot 2024-04-27 093353](https://github.com/RutamBhagat/talk_spark_frontend/assets/72187009/b86571e3-f384-470a-b38b-7d1f7bdb2ed0)
 
-**Oprah Winfrey:**
-[https://talk-spark.com/profile/oprahwinfrey](https://talk-spark.com/profile/oprahwinfrey)
+**Leon Noel:**
+![Screenshot 2024-04-27 093443](https://github.com/RutamBhagat/talk_spark_frontend/assets/72187009/85e1fc08-9310-4aa4-891f-23eda8d72f60)
 
-**Satya Nadella:**
-[https://talk-spark.com/profile/satyanadella](https://talk-spark.com/profile/satyanadella)
+**Ankur Warikoo:**
+![Screenshot 2024-04-27 093532](https://github.com/RutamBhagat/talk_spark_frontend/assets/72187009/dd5c1784-1951-418e-a956-f084589a0334)
