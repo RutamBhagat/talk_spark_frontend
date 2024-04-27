@@ -3,6 +3,7 @@
 TalkSpark is a cool app that uses AI to give you great conversation starters. Just type in someone's name, and TalkSpark will find their social media profiles online. It looks at their info and interests to make custom icebreakers for you. This helps you start enjoyable chats with new people.
 
 **Link to project:** [https://talk-spark-frontend.vercel.app/](https://talk-spark-frontend.vercel.app/)
+
 ![Screenshot 2024-04-27 093414](https://github.com/RutamBhagat/talk_spark_frontend/assets/72187009/44554e6e-e00b-484c-bd96-420c451bea5e)
 
 ## How It's Made
