@@ -15,6 +15,7 @@ export default function DataForm({ className, setData }: Props) {
 
   const submit = async () => {
     setLoading(true);
+    setName("");
     const endpoint = `${process.env.NEXT_PUBLIC_BACKEND_APP_URL}/talk_spark/process`;
     try {
       const response = await axios.post(endpoint, { name });
@@ -42,7 +43,6 @@ export default function DataForm({ className, setData }: Props) {
       }
     } finally {
       setLoading(false);
-      setName("");
     }
   };
 
