@@ -7,7 +7,6 @@ export type TPersonData = {
   interesting_facts: string[];
   topics_of_interest: string;
   ice_breakers: string[];
-  profile_picture: string;
   full_name: string;
 };
 
@@ -35,9 +34,7 @@ export default function Search() {
                 <div className="mb-8 border-gray-200 sm:border-r">
                   <div className="flex h-20 w-20 flex-shrink-0 items-center justify-center rounded-full bg-indigo-100 text-indigo-500 sm:mr-10 sm:h-32 sm:w-32">
                     <img
-                      src={
-                        false ? `${data?.profile_picture}` : "https://cdn-icons-png.flaticon.com/512/8483/8483624.png"
-                      }
+                      src="https://cdn-icons-png.flaticon.com/512/8483/8483624.png"
                       alt="external-interest-emotions-and-emotional-intelligence-flaticons-lineal-color-flat-icons"
                       className="aspect-square h-12 w-12 object-cover sm:h-20 sm:w-20"
                     />

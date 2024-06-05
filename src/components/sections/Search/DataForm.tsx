@@ -16,10 +16,11 @@ export default function DataForm({ className, setData }: Props) {
   const submit = async () => {
     setLoading(true);
     setName("");
-    const endpoint = `${process.env.NEXT_PUBLIC_BACKEND_APP_URL}/talk_spark/process`;
+    // const endpoint = `${process.env.NEXT_PUBLIC_BACKEND_APP_URL}/talk_spark/process`;
+    const endpoint = `${process.env.NEXT_PUBLIC_BACKEND_APP_URL}/talk_spark`;
     try {
-      const response = await axios.post(endpoint, { name });
-      const data = response.data as TPersonData;
+      const response = await axios.post(endpoint, { person: name });
+      const data = { ...response.data.bio, full_name: name } as TPersonData;
       setData(data);
       console.log("Output: ", data);
     } catch (error) {
