@@ -8,7 +8,9 @@ TalkSpark is a cool app that uses OpenAI to give you great conversation starters
 
 **Backend Repo:** https://github.com/RutamBhagat/talk_spark_langgraph
 
-https://github.com/RutamBhagat/talk_spark_frontend/assets/72187009/dfc43717-61d5-4391-8d1c-89f291d780c7
+## Demo Video
+
+https://github.com/user-attachments/assets/c14feb87-ede0-4cf9-a8ab-65af7b7f06c2
 
 ## How It's Made
 
@@ -40,11 +42,10 @@ This project made me really excited about using Langgraph to solve practical pro
 
 Here are a few examples showcasing TalkSpark's capabilities:
 
-**Andrew NG:**
-![Screenshot 2024-04-27 093353](https://github.com/RutamBhagat/talk_spark_frontend/assets/72187009/b86571e3-f384-470a-b38b-7d1f7bdb2ed0)
+![Screenshot 2024-11-04 015402](https://github.com/user-attachments/assets/158c009a-94e0-4bdb-bb72-f87886b30edd)
 
-**Leon Noel:**
-![Screenshot 2024-04-27 093443](https://github.com/RutamBhagat/talk_spark_frontend/assets/72187009/85e1fc08-9310-4aa4-891f-23eda8d72f60)
+![Screenshot 2024-11-04 015441](https://github.com/user-attachments/assets/a082e589-39ba-4ab8-9897-a8bf19e489f9)
 
-**Ankur Warikoo:**
-![Screenshot 2024-04-27 093532](https://github.com/RutamBhagat/talk_spark_frontend/assets/72187009/dd5c1784-1951-418e-a956-f084589a0334)
+![Screenshot 2024-11-04 015456](https://github.com/user-attachments/assets/899708ac-2206-4f56-8635-a8e9109acf5f)
+
+![Screenshot 2024-11-04 015504](https://github.com/user-attachments/assets/c39f1f58-ad52-44f9-8610-ccfd8277b60c)
