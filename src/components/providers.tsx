@@ -1,5 +1,7 @@
+"use client";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "./ui/sonner";
+import { NextUIProvider } from "@nextui-org/react";
 
 const queryClient = new QueryClient();
 
@@ -10,8 +12,10 @@ export default function Providers({
 }>) {
   return (
     <QueryClientProvider client={queryClient}>
-      <Toaster />
-      {children}
+      <NextUIProvider>
+        <Toaster />
+        {children}
+      </NextUIProvider>
     </QueryClientProvider>
   );
 }
