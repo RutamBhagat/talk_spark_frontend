@@ -21,10 +21,10 @@ export default function Home() {
             </Link>
             <div className="flex items-center space-x-4">
               <Link
-                href="#about"
+                href="#search"
                 className="text-sm font-medium text-gray-600 hover:text-indigo-600"
               >
-                About
+                Search
               </Link>
               <Link
                 href="#features"
@@ -33,10 +33,10 @@ export default function Home() {
                 Features
               </Link>
               <Link
-                href="#contact"
+                href="#opensource"
                 className="text-sm font-medium text-gray-600 hover:text-indigo-600"
               >
-                Contact
+                Open Source
               </Link>
             </div>
           </nav>
