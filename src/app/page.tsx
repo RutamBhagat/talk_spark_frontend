@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       <header className="border-b">
-        <div className="container mx-auto px-4 py-4">
+        <div className="container mx-auto px-4 py-4 fixed top-0 left-0 right-0">
           <nav className="flex items-center justify-between">
             <Link href="/" className="flex items-center space-x-2">
               <div className="flex h-10 w-10 items-center justify-center rounded-full bg-indigo-100">
