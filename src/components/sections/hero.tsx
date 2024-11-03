@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Twitter } from "lucide-react";
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -31,19 +32,23 @@ export default function Hero() {
           </p>
 
           <div className="mt-10 flex justify-center space-x-4">
-            <Button
-              size="lg"
-              className="bg-indigo-600 hover:bg-indigo-700 text-white"
-            >
-              Get Started
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="text-indigo-600 border-indigo-600 hover:bg-indigo-50"
-            >
-              Learn More
-            </Button>
+            <Link href="#search">
+              <Button
+                size="lg"
+                className="bg-indigo-600 hover:bg-indigo-700 text-white"
+              >
+                Get Started
+              </Button>
+            </Link>
+            <Link href="#opensource">
+              <Button
+                size="lg"
+                variant="outline"
+                className="text-indigo-600 border-indigo-600 hover:bg-indigo-50"
+              >
+                Learn More
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
