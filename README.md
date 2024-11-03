@@ -1,51 +1,81 @@
 # TalkSpark: AI-Powered Conversation Starter
 
-TalkSpark is a cool app that uses OpenAI to give you great conversation starters. Just type in someone's name, and TalkSpark will find their social media profiles online. It looks at their info and interests to make custom icebreakers for you. This helps you start enjoyable chats with new people.
+## Overview
 
-**Link to project:** [https://talk-spark-frontend.vercel.app/](https://talk-spark-frontend.vercel.app/)
+TalkSpark is an AI-powered tool designed to generate personalized conversation starters. The application leverages OpenAI's capabilities to analyze social media profiles and create custom icebreakers, making it easier to initiate meaningful conversations with new connections.
 
-**Frontend Repo:** https://github.com/RutamBhagat/talk_spark_frontend
+**Frontend:** [TalkSpark UI](https://talk-spark-frontend.vercel.app/)
 
-**Backend Repo:** https://github.com/RutamBhagat/talk_spark_langgraph
+**Frontend Repo:** [Talk Spark Frontend](https://github.com/RutamBhagat/talk_spark_frontend)
+
+**Backend Repo:** [Talk Spark Backend](https://github.com/RutamBhagat/talk_spark_langgraph)
 
 ## Demo Video
 
 https://github.com/user-attachments/assets/c14feb87-ede0-4cf9-a8ab-65af7b7f06c2
 
-## How It's Made
+## Key Features
 
-**Tech used:** LangChain, LCEL, LangGraph, Next.js, FASTAPI, Python, TavilyAPI, ProxyCurl
+- **Profile Analysis**: Automated system that analyzes social media profiles using LangGraph and custom tools
+- **Custom Icebreakers**: Generates personalized conversation starters based on profile data
+- **Multi-Platform Integration**: Supports various social media platforms through web scraping
+- **Modular Architecture**: Easily extensible to include additional data sources and language models
 
-TalkSpark uses LangGraph, which is framework used to build Agentic apps with LLMs. It combines LangGraph Nodes, chains, custom tools (Tavily) for web search, and structured output parsers to connect to peoples LinkedIn. This lets it pull public profile data from Linkedin. TalkSpark uses TavilyAPI, ProxyCurl helps TalkSpark grabs info from websites by web scraping. The LangGraph agents then process this data to make personalized profiles, fun facts, and custom icebreaker questions.
+## Technologies Used
 
-TalkSpark's code is built in sections and is completely modularized, so you can add more data sources like twitter and facebook easily. Also can you switch language models. The front-end uses Next.js to make it simple to use.
+- **Frontend**: Next.js for a responsive user interface
+- **Backend**: FastAPI for efficient request handling
+- **AI Integration**: LangChain, LCEL, LangGraph for AI processing
+- **External Tools**: TavilyAPI for web search, jina.ai for persons data
+- **Development Tools**: Python for backend processing
+
+## Challenges and Learnings
+
+The development process provided valuable insights into:
+
+- Integrating multiple data sources and LLMs into a cohesive application
+- Creating custom agents and tools for LangGraph
+- Optimizing web scraping for reliability and performance
+- Implementing async processing and caching mechanisms
 
 ## Optimizations
 
-To ensure optimal performance and scalability, TalkSpark employs several optimization techniques:
+1. **Caching System**
 
-1. **Caching**: Frequently accessed social media profiles and web pages are cached to reduce redundant requests and improve response times.
-2. **Asynchronous Processing**: Web scraping and data processing tasks are executed asynchronously, enabling TalkSpark to handle multiple requests concurrently without sacrificing responsiveness.
+   - Implemented profile and webpage caching to reduce redundant requests
+   - Improved response times through efficient data storage
 
-## Lessons Learned
+2. **Asynchronous Processing**
+   - Concurrent handling of web scraping and data processing
+   - Enhanced system responsiveness and scalability
 
-Building TalkSpark taught me a ton about using LLMs, Langchain, LCEL, LangGraph and web scraping tools in really cool ways, like:
+## Getting Started
 
-- Combining multiple data sources and LLMs into one smooth app.
-- Making custom agents and tools for LangGraph to do exactly what I needed.
-- Optimizing web scraping to make it fast and reliable.
-- Adding async processing and caching to make things speedy.
+1. **Clone the Repositories**
 
-This project made me really excited about using Langgraph to solve practical problems and help people connect better.
+   ```bash
+   # Frontend
+   git clone https://github.com/RutamBhagat/talk_spark_frontend
+   # Backend
+   git clone https://github.com/RutamBhagat/talk_spark_langgraph
+   ```
 
-## Examples
+2. **Configure Environment**
 
-Here are a few examples showcasing TalkSpark's capabilities:
+   - Set up necessary API keys
+   - Configure social media integration settings
 
-![Screenshot 2024-11-04 015402](https://github.com/user-attachments/assets/158c009a-94e0-4bdb-bb72-f87886b30edd)
+3. **Install Dependencies**
+   - Follow repository-specific setup instructions
+   - Ensure all required packages are installed
 
-![Screenshot 2024-11-04 015441](https://github.com/user-attachments/assets/a082e589-39ba-4ab8-9897-a8bf19e489f9)
+## Outcome
 
-![Screenshot 2024-11-04 015456](https://github.com/user-attachments/assets/899708ac-2206-4f56-8635-a8e9109acf5f)
+TalkSpark successfully demonstrates the practical application of AI in facilitating human connections. The system provides efficient, personalized conversation starters while maintaining scalability and performance through optimized processing techniques.
 
-![Screenshot 2024-11-04 015504](https://github.com/user-attachments/assets/c39f1f58-ad52-44f9-8610-ccfd8277b60c)
+# Screenshots
+
+![1](https://github.com/user-attachments/assets/158c009a-94e0-4bdb-bb72-f87886b30edd)
+![2](https://github.com/user-attachments/assets/a082e589-39ba-4ab8-9897-a8bf19e489f9)
+![3](https://github.com/user-attachments/assets/899708ac-2206-4f56-8635-a8e9109acf5f)
+![4](https://github.com/user-attachments/assets/c39f1f58-ad52-44f9-8610-ccfd8277b60c)
