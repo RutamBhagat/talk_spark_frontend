@@ -1,4 +1,8 @@
+"use client";
 import React from "react";
+import axios from "axios";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { toast } from "sonner";
 import DataForm from "./Search/DataForm";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -12,29 +16,69 @@ export type TPersonData = {
   full_name: string;
 };
 
-function SearchContent() {
+// API function for fetching person data
+const fetchPersonData = async (name: string): Promise<TPersonData> => {
+  const endpoint = `${process.env.NEXT_PUBLIC_BACKEND_APP_URL}/api/v1/talk_spark`;
+  const response = await axios.post(endpoint, { person: name });
+
+  // Ensure only plain object data is returned by selecting specific properties
+  const { summary, interesting_facts, topics_of_interest, ice_breakers } =
+    response.data.bio;
+  return {
+    summary,
+    interesting_facts,
+    topics_of_interest,
+    ice_breakers,
+    full_name: name,
+  };
+};
+
+export default function SearchContent() {
   const [data, setData] = React.useState<TPersonData | undefined>(undefined);
+  const queryClient = useQueryClient();
+
+  // Mutation setup for data fetching
+  const mutation = useMutation({
+    mutationFn: fetchPersonData,
+    onMutate: () => {
+      toast.loading("Sparking the conversation...", { id: "spark-toast" });
+    },
+    onSuccess: (data) => {
+      setData(data);
+      toast.success("Found conversation sparks!", {
+        id: "spark-toast",
+        description: `Ready to connect with ${data.full_name}`,
+      });
+
+      // Cache the result
+      queryClient.setQueryData(["person", data.full_name], data);
+    },
+    onError: (error) => {
+      if (axios.isAxiosError(error)) {
+        const errorMessage =
+          error.response?.data?.message || "Failed to fetch data";
+        toast.error("Something went wrong", {
+          id: "spark-toast",
+          description: errorMessage,
+        });
+      } else {
+        toast.error("An unexpected error occurred", { id: "spark-toast" });
+      }
+    },
+  });
 
   return (
     <section className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       <div className="container mx-auto px-4 py-12">
         {data === undefined ? (
           <div className="mx-auto max-w-lg">
-            <DataForm
-              setData={(data) => {
-                setData(data);
-              }}
-            />
+            <DataForm setData={mutation.mutate} />
           </div>
         ) : (
           <div className="mx-auto max-w-4xl">
             <div className="grid gap-6 md:grid-cols-[300px_1fr]">
               <div className="space-y-6">
-                <DataForm
-                  setData={(data) => {
-                    setData(data);
-                  }}
-                />
+                <DataForm setData={mutation.mutate} />
               </div>
 
               <div className="space-y-6">
