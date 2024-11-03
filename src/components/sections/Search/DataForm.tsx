@@ -1,7 +1,11 @@
-"use client";
 import React from "react";
-import { Button } from "@nextui-org/react";
-import axios, { isAxiosError } from "axios";
+import axios from "axios";
+import { toast } from "sonner";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Search } from "lucide-react";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import type { TPersonData } from "../search";
 
 type Props = {
@@ -9,76 +13,99 @@ type Props = {
   className?: string;
 };
 
+// API function
+const fetchPersonData = async (name: string) => {
+  const endpoint = `${process.env.NEXT_PUBLIC_BACKEND_APP_URL}/api/v1/talk_spark`;
+  const response = await axios.post(endpoint, { person: name });
+  return { ...response.data.bio, full_name: name } as TPersonData;
+};
+
 export default function DataForm({ className, setData }: Props) {
   const [name, setName] = React.useState<string>("");
-  const [loading, setLoading] = React.useState<boolean>(false);
+  const queryClient = useQueryClient();
 
-  const submit = async () => {
-    setLoading(true);
-    setName("");
-    const endpoint = `${process.env.NEXT_PUBLIC_BACKEND_APP_URL}/api/v1/talk_spark`;
-    try {
-      const response = await axios.post(endpoint, { person: name });
-      const data = { ...response.data.bio, full_name: name } as TPersonData;
+  // Setup mutation
+  const mutation = useMutation({
+    mutationFn: (name: string) => fetchPersonData(name),
+    onMutate: () => {
+      toast.loading("Sparking the conversation...", { id: "spark-toast" });
+    },
+    onSuccess: (data) => {
       setData(data);
-      console.log("Output: ", data);
-    } catch (error) {
-      if (isAxiosError(error)) {
-        // The error is an Axios error
-        if (error.response) {
-          // The request was made and the server responded with a status code
-          // that falls out of the range of 2xx
-          console.error("Error response:", error.response.data);
-          console.error("Error status:", error.response.status);
-        } else if (error.request) {
-          // The request was made but no response was received
-          console.error("No response received:", error.request);
-        } else {
-          // Something happened in setting up the request that triggered an Error
-          console.error("Error", error.message);
-        }
+      toast.success("Found conversation sparks!", {
+        id: "spark-toast",
+        description: `Ready to connect with ${data.full_name}`,
+      });
+
+      // Cache the result
+      queryClient.setQueryData(["person", data.full_name], data);
+
+      // Clear input
+      setName("");
+    },
+    onError: (error) => {
+      if (axios.isAxiosError(error)) {
+        const errorMessage =
+          error.response?.data?.message || "Failed to fetch data";
+        toast.error("Something went wrong", {
+          id: "spark-toast",
+          description: errorMessage,
+        });
       } else {
-        // The error is not an Axios error
-        console.error("Non-Axios error:", error);
+        toast.error("An unexpected error occurred", {
+          id: "spark-toast",
+        });
       }
-    } finally {
-      setLoading(false);
+    },
+  });
+
+  const handleSubmit = () => {
+    if (!name.trim()) {
+      toast.error("Please enter a name");
+      return;
     }
+
+    mutation.mutate(name);
   };
 
   return (
-    <div className={`${className} mx-auto mb-8 max-w-md rounded-lg bg-white`}>
-      <div className="w-full ">
-        <h2 className="mb-4 text-center text-2xl font-semibold tracking-tight transition-colors">
+    <Card className={`${className} w-full shadow-lg`}>
+      <CardHeader>
+        <CardTitle className="text-center text-2xl font-bold">
           Ignite Meaningful Connections
-        </h2>
-      </div>
-      <p className="mb-6 text-center text-gray-600">
-        Enter a name to discover personalized icebreakers and conversation
-        starters.
-      </p>
-      <div className="mb-4">
-        <input
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          onKeyDown={(e) => {
-            if (e.key === "Enter") {
-              submit();
-            }
-          }}
-          type="text"
-          placeholder="Enter a name (e.g., Andrew NG)"
-          className="w-full rounded-md border border-gray-300 px-4 py-2 focus:outline-none"
-        />
-      </div>
-      <Button
-        onClick={submit}
-        type="submit"
-        className="w-full rounded-md bg-black px-4 py-2 font-semibold text-white transition duration-300 hover:bg-gray-800"
-        isLoading={loading}
-      >
-        Spark the Conversation
-      </Button>
-    </div>
+        </CardTitle>
+        <p className="text-center text-sm text-gray-600">
+          Enter a name to discover personalized icebreakers and conversation
+          starters.
+        </p>
+      </CardHeader>
+      <CardContent>
+        <div className="space-y-4">
+          <div className="relative">
+            <Search className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
+            <Input
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" && !mutation.isPending) {
+                  handleSubmit();
+                }
+              }}
+              type="text"
+              placeholder="Enter a name (e.g., Andrew NG)"
+              className="pl-9"
+              disabled={mutation.isPending}
+            />
+          </div>
+          <Button
+            onClick={handleSubmit}
+            disabled={mutation.isPending}
+            className="w-full bg-gradient-to-r from-indigo-500 to-purple-500 text-white hover:from-indigo-600 hover:to-purple-600"
+          >
+            {mutation.isPending ? "Sparking..." : "Spark the Conversation"}
+          </Button>
+        </div>
+      </CardContent>
+    </Card>
   );
 }
