@@ -16,8 +16,7 @@ export default function DataForm({ className, setData }: Props) {
   const submit = async () => {
     setLoading(true);
     setName("");
-    // const endpoint = `${process.env.NEXT_PUBLIC_BACKEND_APP_URL}/talk_spark/process`;
-    const endpoint = `${process.env.NEXT_PUBLIC_BACKEND_APP_URL}/talk_spark`;
+    const endpoint = `${process.env.NEXT_PUBLIC_BACKEND_APP_URL}/api/v1/talk_spark`;
     try {
       const response = await axios.post(endpoint, { person: name });
       const data = { ...response.data.bio, full_name: name } as TPersonData;
@@ -55,7 +54,8 @@ export default function DataForm({ className, setData }: Props) {
         </h2>
       </div>
       <p className="mb-6 text-center text-gray-600">
-        Enter a name to discover personalized icebreakers and conversation starters.
+        Enter a name to discover personalized icebreakers and conversation
+        starters.
       </p>
       <div className="mb-4">
         <input
