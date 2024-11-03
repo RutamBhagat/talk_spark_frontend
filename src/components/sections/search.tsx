@@ -12,7 +12,7 @@ import { Badge } from "@/components/ui/badge";
 export type TPersonData = {
   summary: string;
   interesting_facts: string[];
-  topics_of_interest: string;
+  topics_of_interest: string[];
   ice_breakers: string[];
   full_name: string;
 };
@@ -63,7 +63,7 @@ export default function SearchContent() {
   });
 
   return (
-    <section className="py-20 bg-white">
+    <section id="search" className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl font-bold text-center text-gray-900 mb-8">
@@ -99,19 +99,17 @@ export default function SearchContent() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <ScrollArea className="h-[200px] w-full">
+                  <ScrollArea className="w-full">
                     <div className="flex flex-wrap gap-2">
-                      {data.topics_of_interest
-                        .split(",")
-                        .map((topic, index) => (
-                          <Badge
-                            key={index}
-                            variant="secondary"
-                            className="px-3 py-1.5 text-sm bg-indigo-100 text-indigo-700 hover:bg-indigo-200 transition-colors duration-200"
-                          >
-                            {topic.trim()}
-                          </Badge>
-                        ))}
+                      {data.topics_of_interest.map((topic, index) => (
+                        <Badge
+                          key={index}
+                          variant="secondary"
+                          className="px-3 py-1.5 text-sm bg-indigo-100 text-indigo-700 hover:bg-indigo-200 transition-colors duration-200"
+                        >
+                          {topic.trim()}
+                        </Badge>
+                      ))}
                     </div>
                   </ScrollArea>
                 </CardContent>
@@ -125,7 +123,7 @@ export default function SearchContent() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <ScrollArea className="h-[300px] w-full">
+                  <ScrollArea className="w-full">
                     <ul className="space-y-4">
                       {data.interesting_facts.map((fact, index) => (
                         <li key={index} className="flex items-start space-x-3">
@@ -146,7 +144,7 @@ export default function SearchContent() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <ScrollArea className="h-[300px] w-full">
+                  <ScrollArea className="w-full">
                     <ul className="space-y-4">
                       {data.ice_breakers.map((breaker, index) => (
                         <li key={index} className="flex items-start space-x-3">

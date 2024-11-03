@@ -3,7 +3,10 @@ import { Twitter } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="bg-gradient-to-b from-indigo-50 to-white py-20">
+    <section
+      id="hero"
+      className="bg-gradient-to-b from-indigo-50 to-white py-20"
+    >
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center">
           <a

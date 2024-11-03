@@ -21,19 +21,19 @@ export default function Home() {
             </Link>
             <div className="flex items-center space-x-4">
               <Link
-                href="#"
+                href="#about"
                 className="text-sm font-medium text-gray-600 hover:text-indigo-600"
               >
                 About
               </Link>
               <Link
-                href="#"
+                href="#features"
                 className="text-sm font-medium text-gray-600 hover:text-indigo-600"
               >
                 Features
               </Link>
               <Link
-                href="#"
+                href="#contact"
                 className="text-sm font-medium text-gray-600 hover:text-indigo-600"
               >
                 Contact
