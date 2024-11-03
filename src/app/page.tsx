@@ -1,30 +1,58 @@
+import { SparklesIcon } from "lucide-react";
+import Link from "next/link";
 import Features from "@/components/sections/features";
 import Hero from "@/components/sections/hero";
 import OpenSource from "@/components/sections/open-source";
 import Search from "@/components/sections/search";
-import Link from "next/link";
 
 export default function Home() {
   return (
-    <>
-      <nav className="h-full pt-10 pl-10 max-w-7xl mx-auto">
-        <Link href="/" className="flex items-center text-2xl font-bold">
-          <img
-            src="https://cdn-icons-png.flaticon.com/512/4250/4250219.png"
-            alt="TalkSpark logo"
-            width="30"
-            height="30"
-            className="mr-2 rounded-sm object-contain"
-          />
-          <p>TalkSpark</p>
-        </Link>
-      </nav>
-      <main className="flex min-h-screen flex-col items-center justify-between p-24 pt-0">
+    <div className="flex flex-col min-h-screen">
+      <header className="border-b">
+        <div className="container mx-auto px-4 py-4">
+          <nav className="flex items-center justify-between">
+            <Link href="/" className="flex items-center space-x-2">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-indigo-100">
+                <SparklesIcon className="h-6 w-6 text-indigo-600" />
+              </div>
+              <span className="text-2xl font-bold text-gray-900">
+                TalkSpark
+              </span>
+            </Link>
+            <div className="flex items-center space-x-4">
+              <Link
+                href="#"
+                className="text-sm font-medium text-gray-600 hover:text-indigo-600"
+              >
+                About
+              </Link>
+              <Link
+                href="#"
+                className="text-sm font-medium text-gray-600 hover:text-indigo-600"
+              >
+                Features
+              </Link>
+              <Link
+                href="#"
+                className="text-sm font-medium text-gray-600 hover:text-indigo-600"
+              >
+                Contact
+              </Link>
+            </div>
+          </nav>
+        </div>
+      </header>
+      <main className="flex-grow">
         <Hero />
         <Search />
         <Features />
         <OpenSource />
       </main>
-    </>
+      <footer className="border-t">
+        <div className="container mx-auto px-4 py-6 text-center text-sm text-gray-600">
+          © 2024 TalkSpark. All rights reserved.
+        </div>
+      </footer>
+    </div>
   );
 }

@@ -1,64 +1,102 @@
-import { Card } from "@nextui-org/react";
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  Brain,
+  MessageCircle,
+  BarChart,
+  Code2,
+  Share2,
+  UserCircle,
+  MessagesSquare,
+  BookMarked,
+  FileText,
+} from "lucide-react";
+
+const features = [
+  {
+    icon: Brain,
+    title: "AI-Powered Profiles",
+    description:
+      "Personal profiles with key details, interesting facts, and topics of interest.",
+  },
+  {
+    icon: MessageCircle,
+    title: "Smart Icebreakers",
+    description:
+      "Curated questions and conversation starters tailored to the individual.",
+  },
+  {
+    icon: BarChart,
+    title: "Conversation Analytics",
+    description:
+      "Analytics and insights to help improve your conversation skills over time.",
+  },
+  {
+    icon: Code2,
+    title: "Langchain Integration",
+    description:
+      "Built using Langchain, a framework for developing applications with LLMs.",
+  },
+  {
+    icon: Share2,
+    title: "Social Integration",
+    description:
+      "Integration with popular social media platforms to fetch public profile data.",
+  },
+  {
+    icon: UserCircle,
+    title: "Personality Insights",
+    description:
+      "Personalized conversation guides based on communication style.",
+  },
+  {
+    icon: MessagesSquare,
+    title: "Real-time Suggestions",
+    description:
+      "Real-time suggestions for follow-up questions to keep conversations flowing.",
+  },
+  {
+    icon: BookMarked,
+    title: "Conversation History",
+    description:
+      "Ability to save and review past conversations for future reference.",
+  },
+  {
+    icon: FileText,
+    title: "Sharable Summaries",
+    description:
+      "Sharable conversation summaries and highlights for easy recapping.",
+  },
+];
 
 export default function Features() {
   return (
-    <section>
-      <div className="container space-y-6 rounded-md bg-gray-100 py-14 lg:py-24">
-        <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
-          <h2 className="font-heading text-4xl md:text-6xl">Features</h2>
-          <p className="max-w-[85%] text-balance leading-normal text-primary/70 sm:text-lg sm:leading-7">
-            This app comes with features to help you kickstart conversations and build rapport
+    <section className="py-20 bg-gray-50">
+      <div className="container mx-auto px-4">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
+            Features
+          </h2>
+          <p className="mt-4 text-xl text-gray-600">
+            Kickstart conversations and build rapport with these powerful
+            features
           </p>
         </div>
-        <div className="mx-auto grid justify-center gap-4 text-center sm:grid-cols-2 md:max-w-[64rem] md:grid-cols-3 px-20">
-          <Card className="flex h-[160px] flex-col items-center justify-center bg-white rounded-md p-6">
-            <p className="text-balance text-sm text-muted-foreground">
-              AI-powered personal profiles with key details, interesting facts, and topics of interest.
-            </p>
-          </Card>
-          <Card className="flex h-[160px] flex-col items-center justify-center bg-white rounded-md p-6">
-            <p className="text-balance text-sm text-muted-foreground">
-              Curated icebreaker questions and conversation starters tailored to the individual.
-            </p>
-          </Card>
-          <Card className="flex h-[160px] flex-col items-center justify-center bg-white rounded-md p-6">
-            <p className="text-balance text-sm text-muted-foreground">
-              Analytics and insights to help improve your conversation skills over time.
-            </p>
-          </Card>
-          <Card className="flex h-[160px] flex-col items-center justify-center bg-white rounded-md p-6">
-            <p className="text-balance text-sm text-muted-foreground">
-              Built using Langchain, a framework for developing applications with large language models.
-            </p>
-          </Card>
-          <Card className="flex h-[160px] flex-col items-center justify-center bg-white rounded-md p-6">
-            <p className="text-balance text-sm text-muted-foreground">
-              Integration with popular social media platforms to fetch public profile data.
-            </p>
-          </Card>
-          <Card className="flex h-[160px] flex-col items-center justify-center bg-white p-6">
-            <p className="text-balance text-sm text-muted-foreground">
-              Personalized conversation guides based on the individual's personality traits and communication style.
-            </p>
-          </Card>
-          <Card className="flex h-[160px] flex-col items-center justify-center bg-white p-6">
-            <p className="text-balance text-sm text-muted-foreground">
-              Real-time suggestions for follow-up questions and prompts to keep the conversation flowing naturally.
-            </p>
-          </Card>
-          <Card className="flex h-[160px] flex-col items-center justify-center bg-white p-6">
-            <p className="text-balance text-sm text-muted-foreground">
-              Ability to save and review past conversations for future reference.
-            </p>
-          </Card>
-          <Card className="flex h-[160px] flex-col items-center justify-center bg-white p-6">
-            <p className="text-balance text-sm text-muted-foreground">
-              Shareable conversation summaries and highlights for easy recapping.
-            </p>
-          </Card>
-        </div>
-        <div className="mx-auto text-center md:max-w-[58rem]">
-          <p className="font-medium leading-normal text-primary/70 sm:text-lg sm:leading-7">Spark Engaging Dialogues</p>
+
+        <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {features.map((feature, index) => (
+            <Card
+              key={index}
+              className="bg-white border-none shadow-lg hover:shadow-xl transition-shadow duration-300"
+            >
+              <CardContent className="p-6">
+                <feature.icon className="h-12 w-12 text-indigo-600 mb-4" />
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                  {feature.title}
+                </h3>
+                <p className="text-gray-600">{feature.description}</p>
+              </CardContent>
+            </Card>
+          ))}
         </div>
       </div>
     </section>
