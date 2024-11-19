@@ -51,23 +51,55 @@ The development process provided valuable insights into:
 
 ## Getting Started
 
-1. **Clone the Repositories**
+### Prerequisites
 
-   ```bash
-   # Frontend
+- Node.js 18+
+- Python 3.10+
+- Docker (optional)
+- Git
+
+### Frontend Setup
+
+```bash
+   # Clone repository
    git clone https://github.com/RutamBhagat/talk_spark_frontend
+   cd talk_spark_frontend
+
+   # Install dependencies
+   npm install
+
+   # Start development server
+   npm run dev
+```
+
+### Backend Setup
+
+```bash
    # Backend
    git clone https://github.com/RutamBhagat/talk_spark_langgraph
-   ```
+   cd talk_spark_langgraph
 
-2. **Configure Environment**
+   pipx install pdm
 
-   - Set up necessary API keys
-   - Configure social media integration settings
+   pdm install
 
-3. **Install Dependencies**
-   - Follow repository-specific setup instructions
-   - Ensure all required packages are installed
+   source .venv/bin/activate
+
+   pdm run uvicorn app.server:app --reload
+```
+
+#### If you want to setup using Docker
+
+```bash
+   # Remove the old container if present
+   docker rm code-wizard-container
+
+   # Build the new image with no cache
+   docker build --no-cache -t code-wizard-app .
+
+   # Run the container
+   docker run -d -p 8000:8000 --name code-wizard-container code-wizard-app
+```
 
 ## Outcome
 
