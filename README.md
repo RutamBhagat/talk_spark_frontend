@@ -92,13 +92,13 @@ The development process provided valuable insights into:
 
 ```bash
    # Remove the old container if present
-   docker rm code-wizard-container
+   docker rm talk-spark-container
 
    # Build the new image with no cache
-   docker build --no-cache -t code-wizard-app .
+   docker build --no-cache -t talk-spark-app .
 
    # Run the container
-   docker run -d -p 8000:8000 --name code-wizard-container code-wizard-app
+   docker run -d -p 8000:8000 --name talk-spark-container talk-spark-app
 ```
 
 ## Outcome
